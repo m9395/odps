@@ -10,7 +10,7 @@ If you are using DTplus products and DataWorks for the first time, you must log 
 
     ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5642659951/p1383.png)
 
-    MaxCompute provides two payment options: Subscription and Pay-As-You-Go. You can select a method as needed. For more information, see [Billing](https://www.alibabacloud.com/help/doc-detail/74873.htm).
+    MaxCompute provides two payment options: Subscription and Pay-As-You-Go. You can select a method as needed. For more information, see [Computing pricing](/intl.en-US/Pricing/Computing pricing.md).
 
     You can select a region according to your current setup. We recommend that you take into consideration the regions of related Alibaba Cloud products \(such as ECS\) and your actual data.
 
