@@ -12,7 +12,7 @@ Spark on MaxCompute可以访问阿里云VPC内的云服务器ECS（Elastic Compu
 
 访问VPC实例时，在spark-defaults.conf或者DataWorks的配置文件中添加`spark.hadoop.odps.cupid.vpc.domain.list`参数，表明需要访问的一个或多个实例的网络情况。该参数值为JSON格式，配置时需要删除参数中多行文本之间的空格和换行符，合并JSON文本为一行。
 
-访问不同实例时，`spark.hadoop.odps.cupid.vpc.domain.list`参数取值请参见下文示例。您需要将示例中的RegionID、VPCID、实例域名和端口等替换为实际使用场景下的值。区域的RegionID请参见[地域和可用区](/cn.zh-CN/产品简介/地域和可用区.md)。
+访问不同实例时，`spark.hadoop.odps.cupid.vpc.domain.list`参数取值请参见下文示例。您需要将示例中的RegionID、VPCID、实例域名和端口等替换为实际使用场景下的值。区域的RegionID请参见[项目空间操作](/cn.zh-CN/开发/常用命令/项目空间操作.md)。
 
 **说明：**
 
