@@ -139,7 +139,7 @@ with o.execute_sql(
 
 ## 在交互式环境执行SQL
 
-在IPython和Jupyter里支持使用SQL插件的方式运行SQL和参数化查询，详情请参见[IPython增强]()和[Jupyter Notebook增强]()。
+在IPython和Jupyter里支持使用SQL插件的方式运行SQL和参数化查询，详情请参见[IPython增强](/intl.zh-CN/开发/PyODPS/交互体验增强/IPython增强.md)和[Jupyter Notebook增强](/intl.zh-CN/开发/PyODPS/交互体验增强/Jupyter Notebook增强.md)。
 
 ## 设置biz\_id
 
