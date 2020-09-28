@@ -37,7 +37,7 @@ After you create a permanent SQL function and store it in the MaxCompute meta sy
 
 ```
 CREATE SQL FUNCTION function_name(@parameter_in1 datatype[, @parameter_in2 datatype...]) 
-[RETURNS (@parameter_out1 datatype[, @parameter_out2 datatype...])] 
+[RETURNS @parameter_out datatype] 
 AS [BEGIN] 
 function_expression 
 [END];
