@@ -37,7 +37,7 @@ SQL语言定义函数作为一种用户自定义函数，弥补了系统只能�
 
 ```
 CREATE SQL FUNCTION function_name(@parameter_in1 datatype[, @parameter_in2 datatype...]) 
-[RETURNS (@parameter_out datatype)] 
+[RETURNS @parameter_out datatype] 
 AS [BEGIN] 
 function_expression 
 [END];
