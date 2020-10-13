@@ -1,14 +1,18 @@
-# Grep示例 {#concept_j4b_gdh_vdb .concept}
+---
+keyword: Grep
+---
+
+# Grep示例
 
 本文为您介绍MapReduce的Grep示例。
 
-## 测试准备 {#section_e3n_syg_vdb .section}
+## 测试准备
 
-1.  准备好测试程序的Jar包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
+1.  准备好测试程序的JAR包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
 2.  准备好Grep测试表和资源。
     1.  创建测试表。
 
-        ``` {#codeblock_tk8_aj5_hyv}
+        ```
         create table mr_src(key string, value string);
         create table mr_grep_tmp (key string, cnt bigint);
         create table mr_grep_out (key bigint, value string);
@@ -16,38 +20,38 @@
 
     2.  添加测试资源。
 
-        ``` {#codeblock_d2a_gsy_068}
+        ```
         add jar data\resources\mapreduce-examples.jar -f;
         ```
 
 3.  使用Tunnel导入数据。
 
-    ``` {#codeblock_ztp_p6q_z4r}
+    ```
     tunnel upload data mr_src;
     ```
 
-    导入mr\_src表的数据文件data的内容。
+    导入mr\_src表的数据如下。
 
-    ``` {#codeblock_o9d_35b_54z}
-     hello,odps
-     hello,world
+    ```
+    hello,odps
+    hello,world
     ```
 
 
-## 测试步骤 {#section_rlv_bzg_vdb .section}
+## 测试步骤
 
 在MaxCompute客户端中执行Grep。
 
-``` {#codeblock_a5k_805_zsp}
+```
 jar -resources mapreduce-examples.jar -classpath data\resources\mapreduce-examples.jar
 com.aliyun.odps.mapred.open.example.Grep mr_src mr_grep_tmp mr_grep_out hello;
 ```
 
-## 预期结果 {#section_hzz_dzg_vdb .section}
+## 预期结果
 
 作业成功结束后，输出表mr\_grep\_out中的内容如下。
 
-``` {#codeblock_2x8_hsd_y1i}
+```
 +------------+------------+
 | key        | value      |
 +------------+------------+
@@ -55,9 +59,9 @@ com.aliyun.odps.mapred.open.example.Grep mr_src mr_grep_tmp mr_grep_out hello;
 +------------+------------+
 ```
 
-## 代码示例 {#section_jgb_gzg_vdb .section}
+## 代码示例
 
-``` {#codeblock_mrz_2gk_212}
+```
 package com.aliyun.odps.mapred.open.example;
 import java.io.IOException;
 import java.util.Iterator;
