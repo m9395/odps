@@ -1,10 +1,12 @@
 ---
-keyword: UDT usage example
+keyword: UDT usage examples
 ---
 
 # Usage examples
 
-This topic describes common usage examples of user-defined type \(UDT\). For example, you can use Java arrays, JSON, complex data types, and table-valued functions in UDT. You can also aggregate data, overload functions, and reference embedded code in UDT.
+This topic describes common usage examples of user-defined types \(UDTs\). You can use Java arrays, JSON, complex data types, and table-valued functions in UDTs. You can also aggregate data, overload functions, and reference embedded code in UDTs.
+
+**Note:** Run the following code in script mode. For more information about the script mode, see [Script Mode SQL](/intl.en-US/Development/SQL/Script Mode SQL.md).
 
 ## Use Java arrays
 
@@ -22,7 +24,7 @@ FROM VALUES (1,2,3,4) AS t(c1, c2, c3, c4);
 
 ## Use JSON
 
-The runtime of UDT carries a JSON dependency \(version 2.2.4\), which can be directly used in JSON.
+The runtime of a UDT carries a JSON dependency \(2.2.4\), which can be directly used in JSON.
 
 **Note:** In addition to JSON dependencies, MaxCompute runtime also carries other dependencies, including `commons-logging (1.1.1)`, `commons-lang (2.5)`, `commons-io (2.4)`, and `protobuf-java (2.4.1)`.
 
@@ -32,17 +34,17 @@ set odps.sql.session.java.imports=java.util.*,java,com.google.gson. *; -- To imp
 @a := select new Gson() gson;   -- Create a Gson object.
 select 
 gson.toJson(new ArrayList<Integer>(Arrays.asList(1, 2, 3))), -- Convert an object to a JSON string.
-cast(gson.fromJson('["a","b","c"]', List.class) as List<String>) -- Deserialize the JSON string. Gson forcibly converts the deserialization result from the List<Object> type to the List<String> type.
+cast(gson.fromJson('["a","b","c"]', List.class) as List<String>) -- Deserialize the JSON string. Gson forcibly converts the deserialization result from the List<Object> type to the List<String> type for future use.
 from @a;
 ```
 
-Compared with the built-in function [GET\_JSON\_OBJECT](/intl.en-US/Development/SQL/Builtin functions/String functions.md), this UDT-based method is simpler. In addition, this method deserializes the content that is extracted from the JSON string to a supported data type, thereby improving efficiency.
+Compared with the built-in function [GET\_JSON\_OBJECT](/intl.en-US/Development/SQL/Builtin functions/String functions.md), this UDT-based method is simpler. In addition, this method deserializes the content that is extracted from the JSON string to a supported data type. The deserialization improves efficiency.
 
 ## Use complex data types
 
-The built-in data types ARRAY and MAP map the `java.util.List` and `java.util.Map` methods, respectively.
+The built-in data type ARRAY maps the `java.util.List` method and the built-in data type MAP maps the `java.util.Map` method.
 
--   Java objects in classes that implement `java.util.List` or `java.util.Map` can be used in complex-type data processing in MaxCompute SQL.
+-   Java objects in classes that implement `java.util.List` or `java.util.Map` can be used to process complex-type data in MaxCompute SQL.
 -   MaxCompute can directly call java.util.List or java.util.Map to process data of the ARRAY or MAP type.
 
 ```
@@ -50,7 +52,7 @@ set odps.sql.type.system.odps2=true;
 set odps.sql.session.java.imports=java.util.*;
 select
     size(new ArrayList<Integer>()),        -- Call the built-in function size() to obtain the size of the ArrayList.
-    array(1,2,3).size(),                   -- Call java.util.List to process data of the ARRAY type.
+    array(1,2,3).size(),                   -- Call the built-in function size() of the List method for the built-in data type ARRAY.
     sort_array(new ArrayList<Integer>()),  -- Sort the data in the ArrayList.
     al[1],                                 -- java.util.List does not support indexing but can process data of the ARRAY type that supports indexing.
     Objects.toString(a),        -- Convert data from the ARRAY type to the STRING type.
@@ -60,7 +62,7 @@ from (select new ArrayList<Integer>(array(1,2,3)) as al, array(1,2,3) as a) t;
 
 ## Aggregate data
 
-To use UDT to achieve aggregation, you must first use the built-in function [COLLECT\_SET](/intl.en-US/Development/SQL/Builtin functions/Aggregate functions.md) or [COLLECT\_LIST](/intl.en-US/Development/SQL/Builtin functions/Aggregate functions.md) to aggregate the data to a list, and then call the scalar method of UDT to calculate the aggregate value.
+If you use a UDT to aggregate data, you must first use the built-in function [COLLECT\_SET](/intl.en-US/Development/SQL/Builtin functions/Aggregate functions.md) or [COLLECT\_LIST](/intl.en-US/Development/SQL/Builtin functions/Aggregate functions.md) to aggregate the data to a list, and then call the scalar method of the UDT to calculate the aggregate value.
 
 The following example shows how to calculate the median of BigInteger data. You cannot directly call the built-in function [MEDIAN](/intl.en-US/Development/SQL/Builtin functions/Aggregate functions.md) because the data is of the `java.math.BigInteger` type.
 
@@ -74,7 +76,7 @@ set odps.sql.session.java.imports=java.math.*;
 select med.toString() from @c;
 ```
 
-You cannot use the `collect_list` function to aggregate partial data because it can only aggregate all data in a specific group. It is less efficient than built-in aggregate functions of MaxCompute or user-defined aggregate functions \(UDAFs\). We recommend that you use built-in aggregate functions if possible. Aggregating all data in a group increases the risk of data skew.
+The `collect_list` function cannot be used to aggregate partial data because it can only aggregate all data in a specific group. It is less efficient than built-in aggregate functions of MaxCompute or user-defined aggregate functions \(UDAFs\). We recommend that you use built-in aggregate functions if possible. If all data in a group is aggregated, data skew may occur.
 
 The UDT-based method produces a higher efficiency than a built-in aggregate function such as `WM_CONCAT` in aggregating all data in a group.
 
@@ -84,7 +86,7 @@ Table-valued functions allow you to specify multiple input rows and columns, and
 
 -   Specify multiple input rows or columns. For more information, see [Aggregate data](#section_jei_63w_tbz).
 -   Call the java.util.List or java.util.Map method to generate a data collection, and then call the explode function to split the collection into multiple rows.
--   Call different getter methods to obtain data from different fields in UDT. The obtained data is returned in multiple columns.
+-   Call different getter methods to obtain data from different fields in a UDT. The obtained data is returned in multiple columns.
 
 The following example shows how to split a JSON string and return the splitting result in multiple columns:
 
@@ -98,9 +100,9 @@ select a.toString() a, b.toString() b from @d; -- The final output. Columns a an
 
 ## Overload functions
 
-In MaxCompute, user-defined functions \(UDFs\) overload functions by overloading the `evaluate` method. Generics are not supported in this mode. Therefore, you must write an `evaluate` method for each supported data type when you define a function. Functions with some input types such as ARRAY cannot be overloaded in this mode. If the Resolve annotation is unavailable, Python UDFs or user-defined table-valued functions \(UDTFs\) determine input parameters based on the number of parameters and support variable-length parameters. However, when this mechanism is used, the compiler does not detect specific errors in static mode.
+In MaxCompute, user-defined functions \(UDFs\) overload functions by overloading the `evaluate` method. Generics are not supported in this mode. To define a function, you must write an `evaluate` method for each supported data type. Functions with some input types such as ARRAY cannot be overloaded in this mode. If the Resolve annotation is unavailable, Python UDFs or user-defined table-valued functions \(UDTFs\) determine input parameters based on the number of parameters and support variable-length parameters. However, if this mechanism is used, the compiler does not detect specific errors in static mode.
 
-In this case, you can use UDT to overload functions. UDT supports generics, class inheritance, and variable-length parameters, and offer flexible methods to define functions. Example:
+To address this issue, you can use a UDT to overload functions. UDTs support generics, class inheritance, and variable-length parameters, and offer flexible methods to define functions. Example:
 
 ```
 public class UDTClass {
@@ -116,18 +118,18 @@ public class UDTClass {
     public static Long length(java.util.List<? extends Object> input) {
         return input.size();
     }
-    // If the code does not forcibly convert the data type, you must specify the default map object java.util.Map<Object, Object> of UDT. To transfer another map object, for example, map<bigint,bigint>, consider using the following method:
-    // 1. When you define the function, use java.util.Map<? extends Object, ? extends Object>.
-    // 2. When you call the function, implement a cast function to forcibly convert the type, for example, UDTClass.mapSize(cast(mapObj as java.util.Map<Object, Object>)).
+    // If the code does not forcibly convert the data type, you must specify the default map object java.util.Map<Object, Object> of the UDT. To call another map object, for example, map<bigint,bigint>, you can use the following method:
+    // 1. To define the function, use java.util.Map<? extends Object, ? extends Object>.
+    // 2. If you call the function, implement a cast function to forcibly convert the type, for example, UDTClass.mapSize(cast(mapObj as java.util.Map<Object, Object>)).
     public static Long mapSize(java.util.Map<Object, Object> input) {
         return input.size();
     }
 }
 ```
 
-In specific scenarios, a UDF can use `com.aliyun.odps.udf.ExecutionContext` that is transferred by the `setup` method to obtain the context. UDT can call the `com.aliyun.odps.udt.UDTExecutionContext.get()` method to obtain the `ExecutionContext` object.
+In specific scenarios, a UDF can use `com.aliyun.odps.udf.ExecutionContext` that is called by the `setup` method to obtain the context. The UDT can call the `com.aliyun.odps.udt.UDTExecutionContext.get()` method to obtain the `ExecutionContext` object.
 
-## Reference embedded code in UDT
+## Reference embedded code in a UDT
 
-Code-embedded UDFs allow you to place SQL scripts and third-party code lines in the same source code file. This simplifies the usage of UDT and facilitates daily development and maintenance. For more information, see [Code-embedded UDFs](/intl.en-US/Development/SQL/UDF/Code-embedded UDFs.md).
+Code-embedded UDFs allow you to place SQL scripts and third-party code lines in the same source code file. This simplifies the usage of UDTs and facilitates daily development and maintenance. For more information, see [Code-embedded UDFs](/intl.en-US/Development/SQL/UDF/Code-embedded UDFs.md).
 
