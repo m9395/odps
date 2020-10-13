@@ -1,51 +1,55 @@
-# 使用Counter示例 {#concept_ipg_qbh_vdb .concept}
+---
+keyword: 使用Counter
+---
+
+# 使用Counter示例
 
 本文为您介绍MapReduce的使用Counter示例。
 
-## 测试准备 {#section_e3n_syg_vdb .section}
+## 测试准备
 
-1.  准备好测试程序的Jar包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
+1.  准备好测试程序的JAR包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
 2.  准备好UserDefinedCounters测试表和资源。
     1.  创建测试表。
 
-        ``` {#codeblock_3v4_yaq_u4j}
+        ```
         create table wc_in (key string, value string);
         create table wc_out(key string, cnt bigint);
         ```
 
     2.  添加测试资源。
 
-        ``` {#codeblock_zyf_b6p_8f2}
+        ```
         add jar data\resources\mapreduce-examples.jar -f;
         ```
 
 3.  使用Tunnel导入数据。
 
-    ``` {#codeblock_m02_4sm_d9b}
+    ```
     tunnel upload data wc_in;
     ```
 
-    导入wc\_in表的数据文件data的内容。
+    导入wc\_in表的数据如下。
 
-    ``` {#codeblock_hvp_c7u_3qu}
+    ```
     hello,odps
     ```
 
 
-## 测试步骤 {#section_rlv_bzg_vdb .section}
+## 测试步骤
 
 在MaxCompute客户端中执行UserDefinedCounters。
 
-``` {#codeblock_1z4_05m_n4t}
+```
 jar -resources mapreduce-examples.jar -classpath data\resources\mapreduce-examples.jar
 com.aliyun.odps.mapred.open.example.UserDefinedCounters wc_in wc_out
 ```
 
-## 预期结果 {#section_hzz_dzg_vdb .section}
+## 预期结果
 
 作业成功结束后，可以看到Counters的输出如下。
 
-``` {#codeblock_mam_iti_1gz}
+```
 Counters: 3
 com.aliyun.odps.mapred.open.example.UserDefinedCounters$MyCounter
 MAP_TASKS=1
@@ -55,7 +59,7 @@ TOTAL_TASKS=2
 
 输出表wc\_out中的内容如下。
 
-``` {#codeblock_fpt_fz7_2ha}
+```
 +------------+------------+
 | key        | cnt        |
 +------------+------------+
@@ -64,9 +68,9 @@ TOTAL_TASKS=2
 +------------+------------+
 ```
 
-## 代码示例 {#section_jgb_gzg_vdb .section}
+## 代码示例
 
-``` {#codeblock_acn_5vm_38w}
+```
 package com.aliyun.odps.mapred.open.example;
 import java.io.IOException;
 import java.util.Iterator;
@@ -151,7 +155,7 @@ public class UserDefinedCounters {
         InputUtils.addTable(TableInfo.builder().tableName(args[0]).build(), job);
         OutputUtils.addTable(TableInfo.builder().tableName(args[1]).build(), job);
         RunningJob rJob = JobClient.runJob(job);
-        //在作业成功结束后，可以获取到job里面的自定义counter的值。
+        //在作业成功结束后，可以获取到Job里面的自定义Counter的值。
         Counters counters = rJob.getCounters();
         long m = counters.findCounter(MyCounter.MAP_TASKS).getValue();
         long r = counters.findCounter(MyCounter.REDUCE_TASKS).getValue();
