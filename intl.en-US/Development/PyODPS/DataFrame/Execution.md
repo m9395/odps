@@ -154,7 +154,7 @@ type(iris[iris.sepalwidth < 2.5].to_pandas(wrap=True))
 odps.df.core.DataFrame
 ```
 
-After data is read from [Tables](), PyODPS can execute the `open_reader` method and use `reader.to_pandas()` to convert Collection objects to pandas DataFrame objects.
+After data is read from [Tables](/intl.en-US/Development/PyODPS/Basic operations/Tables.md), PyODPS can execute the `open_reader` method and use `reader.to_pandas()` to convert Collection objects to pandas DataFrame objects.
 
 ## Set runtime parameters
 
