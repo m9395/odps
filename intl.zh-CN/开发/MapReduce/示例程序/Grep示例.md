@@ -8,7 +8,7 @@ keyword: Grep
 
 ## 测试准备
 
-1.  准备好测试程序的Jar包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
+1.  准备好测试程序的JAR包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
 2.  准备好Grep测试表和资源。
     1.  创建测试表。
 
@@ -30,11 +30,11 @@ keyword: Grep
     tunnel upload data mr_src;
     ```
 
-    导入mr\_src表的数据文件data的内容。
+    导入mr\_src表的数据如下。
 
     ```
-     hello,odps
-     hello,world
+    hello,odps
+    hello,world
     ```
 
 
