@@ -8,7 +8,7 @@ keyword: WordCount示例
 
 ## 测试准备
 
-1.  准备好测试程序的Jar包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
+1.  准备好测试程序的JAR包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
     1.  创建测试表。
 
         ```
@@ -29,7 +29,7 @@ keyword: WordCount示例
     tunnel upload data wc_in;
     ```
 
-    导入wc\_in表的数据文件data的内容。
+    导入wc\_in表的数据如下。
 
     ```
     hello,odps
@@ -47,7 +47,7 @@ com.aliyun.odps.mapred.open.example.WordCount wc_in wc_out
 
 ## 预期结果
 
-作业成功结束后，输出表wc\_out中的内容。
+作业成功结束后，输出表wc\_out中的内容如下。
 
 ```
 +------------+------------+
@@ -102,7 +102,7 @@ public class WordCount {
             public void setup(TaskContext context) throws IOException {
             count = context.createMapOutputValueRecord();
         }
-        //combiner实现的接口和reducer一样，可以立即在mapper本地执行的一个reduce，作用是减少mapper的输出量。
+        //Combiner实现的接口和Reducer一样，是可以立即在Mapper本地执行的一个Reduce，作用是减少Mapper的输出量。
         @Override
             public void reduce(Record key, Iterator<Record> values, TaskContext context)
             throws IOException {
@@ -146,7 +146,7 @@ public class WordCount {
         job.setMapperClass(TokenizerMapper.class);
         job.setCombinerClass(SumCombiner.class);
         job.setReducerClass(SumReducer.class);
-        //设置mapper中间结果的key和value的schema, mapper的中间结果输出也是record的形式。
+        //设置Mapper中间结果的key和value的Schema, Mapper的中间结果输出也是Record的形式。
         job.setMapOutputKeySchema(SchemaUtils.fromString("word:string"));
         job.setMapOutputValueSchema(SchemaUtils.fromString("count:bigint"));
         //设置输入和输出的表信息。
