@@ -8,7 +8,7 @@ keyword: 使用Counter
 
 ## 测试准备
 
-1.  准备好测试程序的Jar包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
+1.  准备好测试程序的JAR包，假设名字为mapreduce-examples.jar，本地存放路径为data\\resources。
 2.  准备好UserDefinedCounters测试表和资源。
     1.  创建测试表。
 
@@ -29,7 +29,7 @@ keyword: 使用Counter
     tunnel upload data wc_in;
     ```
 
-    导入wc\_in表的数据文件data的内容。
+    导入wc\_in表的数据如下。
 
     ```
     hello,odps
@@ -155,7 +155,7 @@ public class UserDefinedCounters {
         InputUtils.addTable(TableInfo.builder().tableName(args[0]).build(), job);
         OutputUtils.addTable(TableInfo.builder().tableName(args[1]).build(), job);
         RunningJob rJob = JobClient.runJob(job);
-        //在作业成功结束后，可以获取到job里面的自定义counter的值。
+        //在作业成功结束后，可以获取到Job里面的自定义Counter的值。
         Counters counters = rJob.getCounters();
         long m = counters.findCounter(MyCounter.MAP_TASKS).getValue();
         long r = counters.findCounter(MyCounter.REDUCE_TASKS).getValue();
