@@ -16,7 +16,7 @@ To implement the preceding logic, execute the following statement:
 SELECT * from mytable1 a LEFT SEMI JOIN mytable2 b on a.id=b.id;
 ```
 
-In this example, only rows in `mytable1` with IDs that appear in `mytable2` are returned in the result set.``````
+In this example, only rows in `mytable1` with IDs that appear in `mytable2` are returned in the result set.
 
 ## LEFT ANTI JOIN
 
@@ -28,5 +28,5 @@ To implement the preceding logic, execute the following statement:
 SELECT * from mytable1 a LEFT ANTI JOIN mytable2 b on a.id=b.id;
 ```
 
-In this example, only rows in `mytable1` with IDs that do not appear in `mytable2` are returned in the result set.``````
+In this example, only rows in `mytable1` with IDs that do not appear in `mytable2` are returned in the result set.
 
