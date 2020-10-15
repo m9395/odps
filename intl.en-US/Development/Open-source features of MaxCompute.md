@@ -20,11 +20,11 @@ MaxCompute provides Java SDK and Python SDK interfaces to create, view, and dele
 
 -   Python SDK
 
-    PyODPS is the Python SDK of MaxCompute. PyODPS supports the DataFrame framework and basic operations on MaxCompute objects. You can use PyODPS to analyze data in MaxCompute. For more information, see [aliyun-odps-python-sdk](https://github.com/aliyun/aliyun-odps-python-sdk) on GitHub and [PyODPS documentation](), which describes all related interfaces and classes in detail.
+    PyODPS is the Python SDK of MaxCompute. PyODPS supports the DataFrame framework and basic operations on MaxCompute objects. You can use PyODPS to analyze data in MaxCompute. For more information, see [aliyun-odps-python-sdk](https://github.com/aliyun/aliyun-odps-python-sdk) on GitHub and [PyODPS documentation](/intl.en-US/Development/PyODPS/Basic operations/Overview.md), which describes all related interfaces and classes in detail.
 
-    -   For more information about how to use PyODPS to develop code, see the [PyODPS developer guide](). Install PyODPS before you can use it. For more information, see the [PyODPS installation guide](/intl.en-US/Development/PyODPS/Installation guide and limits.md).
+    -   For more information about how to use PyODPS to develop code, see the [PyODPS developer guide](/intl.en-US/Development/PyODPS/Platform instructions/Use PyODPS in DataWorks.md). Install PyODPS before you can use it. For more information, see the [PyODPS installation guide](/intl.en-US/Development/PyODPS/Installation guide and limits.md).
     -   For more information about the PyODPS community, see [PyODPS-related articles](https://yq.aliyun.com/album/19?spm=a2c4g.11186623.2.25.5ce96074vn9tRs).
-    -   You are welcome to help build the PyODPS ecosystem. For more information, see [PyODPS DataFrame overview]().
+    -   You are welcome to help build the PyODPS ecosystem. For more information, see [PyODPS DataFrame overview](/intl.en-US/Development/PyODPS/DataFrame/Overview.md).
     -   Feel free to share your feedback and suggestions to help PyODPS evolve. For more information, see [ODPS Python SDK and data analysis framework](https://github.com/aliyun/aliyun-odps-python-sdk) on GitHub.
     **How to obtain service support**: Visit the official documentation or [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) online.
 
