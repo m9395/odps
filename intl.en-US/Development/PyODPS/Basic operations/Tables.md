@@ -300,7 +300,7 @@ o.delete_table('my_table_name', if_exists=True)  # Delete a table only if the ta
 
 ## Create a DataFrame
 
-PyODPS provides the DataFrame framework, which allows you to conveniently query and manage MaxCompute data. For more information, see [DataFrame](). You can call the `to_df()` method to convert a table to a DataFrame.
+PyODPS provides the DataFrame framework, which allows you to conveniently query and manage MaxCompute data. For more information, see [DataFrame](/intl.en-US/Development/PyODPS/DataFrame/Overview.md). You can call the `to_df()` method to convert a table to a DataFrame.
 
 ```
 table = o.get_table('my_table_name')
