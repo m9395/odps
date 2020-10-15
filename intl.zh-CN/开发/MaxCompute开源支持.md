@@ -20,11 +20,11 @@ MaxCompute提供Java SDK和Python SDK接口实现创建、查看、删除MaxComp
 
 -   Python SDK
 
-    PyODPS是MaxCompute的Python版本的SDK，提供对MaxCompute对象的基本操作和DataFrame框架，让您可以轻松地在MaxCompute上进行数据分析。更多详情请参见GitHub项目[aliyun-odps-python-sdk](https://github.com/aliyun/aliyun-odps-python-sdk)和包括所有接口、类的细节等详细内容的[PyODPS文档]()。
+    PyODPS是MaxCompute的Python版本的SDK，提供对MaxCompute对象的基本操作和DataFrame框架，让您可以轻松地在MaxCompute上进行数据分析。更多详情请参见GitHub项目[aliyun-odps-python-sdk](https://github.com/aliyun/aliyun-odps-python-sdk)和包括所有接口、类的细节等详细内容的[PyODPS文档](/intl.zh-CN/开发/PyODPS/基本操作/基本操作概述.md)。
 
-    -   了解更多关于PyODPS的开发内容，请参见[PyODPS开发指南]()。在您开始使用PyODPS之前请先安装PyODPS，详细内容请参见[PyODPS安装指南](/intl.zh-CN/开发/PyODPS/安装指南及使用限制.md)。
+    -   了解更多关于PyODPS的开发内容，请参见[PyODPS开发指南](/intl.zh-CN/开发/PyODPS/工具平台使用指南/在DataWorks上使用PyODPS.md)。在您开始使用PyODPS之前请先安装PyODPS，详细内容请参见[PyODPS安装指南](/intl.zh-CN/开发/PyODPS/安装指南及使用限制.md)。
     -   关于PyODPS的社区信息请参见[PyODPS云栖社区专辑](https://yq.aliyun.com/album/19?spm=a2c4g.11186623.2.25.5ce96074vn9tRs)。
-    -   欢迎各位开发者参与到PyODPS的生态开发中，详情请参见[PyODPS DataFrame概述]()。
+    -   欢迎各位开发者参与到PyODPS的生态开发中，详情请参见[PyODPS DataFrame概述](/intl.zh-CN/开发/PyODPS/DataFrame/DataFrame概述.md)。
     -   欢迎反馈问题和需求，加快PyODPS生态成长，更多详情请参见GitHub [ODPS Python SDK and data analysis framework](https://github.com/aliyun/aliyun-odps-python-sdk)。
     **服务支持方式**：您可通过访问官方文档和在线[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)的方式获取支持。
 
