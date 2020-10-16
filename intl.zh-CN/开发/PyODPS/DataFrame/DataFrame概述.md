@@ -16,7 +16,7 @@ PyODPS提供了DataFrame API，它提供了类似Pandas的接口，但是能充�
 -   [聚合操作](/intl.zh-CN/开发/PyODPS/DataFrame/聚合操作.md)：本文为您介绍DataFrame支持的聚合操作以及如何实现分组聚合、编写自定义聚合。
 -   [排序、去重、采样、数据变换](/intl.zh-CN/开发/PyODPS/DataFrame/排序、去重、采样、数据变换.md)：本文为您介绍DataFrame对象执行排序、去重、采样、数据变换操作。
 -   [数据合并](/intl.zh-CN/开发/PyODPS/DataFrame/数据合并.md)：本文向您介绍DataFrame支持的数据表的JOIN操作、UNION操作等数据合并操作。
--   [窗口函数]()：本文为您介绍DataFrame API支持使用窗口函数。
+-   [窗口函数](/intl.zh-CN/开发/PyODPS/DataFrame/窗口函数.md)：本文为您介绍DataFrame API支持使用窗口函数。
 -   [绘图](/intl.zh-CN/开发/PyODPS/DataFrame/绘图.md)：本文为您介绍PyODPS DataFrame提供的绘图方法。
 -   [调试指南](/intl.zh-CN/开发/PyODPS/DataFrame/调试指南.md)：由于PyODPS DataFrame本身会对整个操作执行优化，为了更直观地反应整个过程， 您可以使用可视化的方式显示整个表达式的计算过程。本文为您介绍DataFrame的调试过程。
 
