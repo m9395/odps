@@ -43,8 +43,6 @@ with instance.open_reader(tunnel=True, limit=False) as reader:
 # 本次open_reader使用instance tunnel接口，且能读取全部数据。
 ```
 
-**说明：** 若您未开启instance tunnel，可能导致获取数据格式错误，解决方法请参见[Python SDK]()。
-
 ## DataFrame
 
 -   执行
