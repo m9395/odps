@@ -16,7 +16,7 @@ PyODPS provides a pandas-like API, PyODPS DataFrame, which can make full use of 
 -   [Aggregation](/intl.en-US/Development/PyODPS/DataFrame/Aggregation.md): describes the aggregation operations supported by DataFrame. It also describes how to implement group aggregation and write aggregate functions.
 -   [Sort, deduplicate, sample, and transform data](/intl.en-US/Development/PyODPS/DataFrame/Sort, deduplicate, sample, and transform data.md): describes how to perform sorting, deduplication, sampling, and data transformation on DataFrame objects.
 -   [Data merging](/intl.en-US/Development/PyODPS/DataFrame/Data merging.md): describes the data merge operations supported by DataFrame. These operations include the JOIN and UNION operations.
--   [Window functions](): describes the window functions supported by DataFrame.
+-   [Window functions](/intl.en-US/Development/PyODPS/DataFrame/Window functions.md): describes the window functions supported by DataFrame.
 -   [Plotting](/intl.en-US/Development/PyODPS/DataFrame/Plotting.md): describes the plotting methods provided by DataFrame.
 -   [Debugging](/intl.en-US/Development/PyODPS/DataFrame/Debugging.md): describes how to perform DataFrame debugging. DataFrame can optimize and display the entire execution. You can visualize the execution.
 
