@@ -1,6 +1,6 @@
 # Lateral View {#concept_sqj_zhk_52b .concept}
 
-Lateral View和split，explode等UDTF一起使用，它能够将一行数据拆成多行数据，并在此基础上对拆分后的数据进行聚合。
+Lateral View和split，explode等UDTF一起使用，它能够将一行数据拆成多行数据，并在此基础上对拆分后的数据进行聚合。。
 
 ## 单个Lateral View语句 {#section_ih1_33k_52b .section}
 
